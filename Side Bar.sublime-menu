@@ -56,14 +56,6 @@
         }
     },
     {
-        "caption": "Delete",
-        "command": "fm_delete",
-        "mnemonic": "e",
-        "args": {
-            "paths": []
-        }
-    },
-    {
         "caption": "-"
     },
     {
@@ -111,46 +103,46 @@
             "paths": []
         }
     },
-    {
-        "caption": "-"
-    },
-    {
-        "mnemonic": "C",
-        "caption": "Copy",
-        "children": [
-            {
-                "caption": "Name",
-                "command": "fm_copy",
-                "args": {
-                    "which": "name",
-                    "paths": []
-                }
-            },
-            {
-                "caption": "Absolute Path",
-                "command": "fm_copy",
-                "args": {
-                    "which": "absolute path",
-                    "paths": []
-                }
-            },
-            {
-                "caption": "Path from root",
-                "command": "fm_copy",
-                "args": {
-                    "which": "path from root",
-                    "paths": []
-                }
-            },
-            {
-                "caption": "Relative Path",
-                "command": "fm_copy",
-                "args": {
-                    "which": "relative path",
-                    "paths": []
-                }
-            }
-        ]
-    }
+    // {
+    //     "caption": "-"
+    // },
+    // {
+    //     "mnemonic": "C",
+    //     "caption": "Copy",
+    //     "children": [
+    //         {
+    //             "caption": "Name",
+    //             "command": "fm_copy",
+    //             "args": {
+    //                 "which": "name",
+    //                 "paths": []
+    //             }
+    //         },
+    //         {
+    //             "caption": "Absolute Path",
+    //             "command": "fm_copy",
+    //             "args": {
+    //                 "which": "absolute path",
+    //                 "paths": []
+    //             }
+    //         },
+    //         {
+    //             "caption": "Path from root",
+    //             "command": "fm_copy",
+    //             "args": {
+    //                 "which": "path from root",
+    //                 "paths": []
+    //             }
+    //         },
+    //         {
+    //             "caption": "Relative Path",
+    //             "command": "fm_copy",
+    //             "args": {
+    //                 "which": "relative path",
+    //                 "paths": []
+    //             }
+    //         }
+    //     ]
+    // }
 
 ]
