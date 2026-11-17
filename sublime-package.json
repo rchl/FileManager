@@ -1,0 +1,200 @@
+{
+  "contributions": {
+    "settings": [
+      {
+        "file_patterns": [
+          "/FileManager.sublime-settings"
+        ],
+        "schema": {
+          "$id": "sublime://settings/FileManager",
+          "definitions": {
+            "ShowCommand": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          "type": "object",
+          "properties": {
+            "ask_for_confirmation_on_delete": {
+              "type": "boolean",
+              "default": true,
+              "markdownDescription": "Ask for confirmation before sending files/folders to the trash. Set to `false` to send them to the trash straight away."
+            },
+            "complete_with_files_too": {
+              "type": "boolean",
+              "default": true,
+              "markdownDescription": "Auto-complete file names in addition to folder names."
+            },
+            "pick_first": {
+              "type": "string",
+              "enum": ["folders", "files", "alphabetic"],
+              "default": "folders",
+              "markdownDescription": "Order of completions when `complete_with_files_too` is enabled.",
+              "markdownEnumDescriptions": [
+                "Folders before files.",
+                "Files before folders.",
+                "Files and folders mixed, in alphabetical order."
+              ]
+            },
+            "case_sensitive": {
+              "type": "boolean",
+              "default": false,
+              "markdownDescription": "Whether path auto-completion is case sensitive."
+            },
+            "index_folder_separator": {
+              "type": "string",
+              "default": ">",
+              "markdownDescription": "Separator between a project folder index and the path, e.g. `1>src/file.py` creates relative to the second project folder. Should be a character that can't appear in a file name."
+            },
+            "default_index": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "markdownDescription": "Index of the project folder that paths are relative to when no index is given in the input."
+            },
+            "log_in_status_bar": {
+              "enum": [false, "user", "computer"],
+              "default": "computer",
+              "markdownDescription": "How to show the resolved path in the status bar while typing.",
+              "markdownEnumDescriptions": [
+                "Don't show the path.",
+                "User-friendly path, e.g. `~/Desktop/`.",
+                "Full path, e.g. `/Users/me/Desktop/`."
+              ]
+            },
+            "terminals": {
+              "type": "array",
+              "markdownDescription": "Terminals for *Open Terminal Here*. If only one is available on the current platform it is opened directly, otherwise a quick panel lists them. `$cwd` in `cmd` is replaced by the working directory.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "markdownDescription": "Name shown in the quick panel."
+                  },
+                  "cmd": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "markdownDescription": "Command and arguments. `$cwd` is replaced by the working directory."
+                  },
+                  "platform": {
+                    "type": "string",
+                    "pattern": "^\\s*(windows|osx|linux)(\\s+(windows|osx|linux))*\\s*$",
+                    "markdownDescription": "Space-separated platforms the terminal is available on (`windows`, `osx`, `linux`). Omit to make it available everywhere."
+                  }
+                },
+                "required": ["name", "cmd"],
+                "additionalProperties": false
+              }
+            },
+            "menu_without_distraction": {
+              "type": "boolean",
+              "default": true,
+              "markdownDescription": "Hide commands that are disabled instead of showing them greyed out."
+            },
+            "explicitly_refresh_sidebar": {
+              "type": "boolean",
+              "default": false,
+              "markdownDescription": "Explicitly refresh the side bar after any action that may affect it (Sublime Text normally does this by itself)."
+            },
+            "reveal_in_sidebar": {
+              "type": "boolean",
+              "default": false,
+              "markdownDescription": "Reveal the file in the side bar after creating, renaming, duplicating, etc."
+            },
+            "save_after_creating": {
+              "type": "boolean",
+              "default": false,
+              "markdownDescription": "Save a file right after creating it (useful because a snippet may be inserted)."
+            },
+            "aliases": {
+              "type": "object",
+              "default": {
+                "st": "$packages",
+                "des": "~/Desktop",
+                "here": "$file_path"
+              },
+              "additionalProperties": {
+                "type": "string"
+              },
+              "markdownDescription": "Aliases usable as `$name` in path inputs. Values can use Sublime Text variables (`$file_path`, `$folder`, `$packages`, ... including defaults like `${file_path:~}`) and other aliases. Setting this replaces the default aliases entirely."
+            },
+            "open_help_on_alias_infinite_loop": {
+              "type": "boolean",
+              "default": true,
+              "markdownDescription": "Open the help page when aliases reference each other in an infinite loop."
+            },
+            "show_create_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *New...* command."
+            },
+            "show_copy_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *Copy* commands (name/path). Note: hiding them leaves an empty *Copy* submenu in the side bar."
+            },
+            "show_delete_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *Delete* command."
+            },
+            "show_duplicate_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *Duplicate...* command."
+            },
+            "show_edit_to_the_left_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *Edit to Left* command."
+            },
+            "show_edit_to_the_right_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *Edit to Right* command."
+            },
+            "show_find_in_files_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *Find in Files* command."
+            },
+            "show_move_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *Move...* command."
+            },
+            "show_open_in_explorer_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *Open in Finder/Explorer* command."
+            },
+            "show_open_in_browser_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *Open in Browser* command."
+            },
+            "show_open_terminal_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *Open Terminal Here* command."
+            },
+            "show_rename_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *Rename* command (current file)."
+            },
+            "show_rename_path_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *Rename...* command (side bar path)."
+            },
+            "show_create_from_selection_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *Open/Create from selection* command."
+            },
+            "show_open_all_command": {
+              "$ref": "#/definitions/ShowCommand",
+              "markdownDescription": "Show the *Open All* command."
+            },
+            "create_keybinding_enabled": {
+              "type": "boolean",
+              "default": true,
+              "markdownDescription": "Enable the default `alt+n` key binding for *New...*."
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    ]
+  }
+}
